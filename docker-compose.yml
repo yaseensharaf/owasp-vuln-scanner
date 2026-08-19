@@ -1,0 +1,17 @@
+services:
+  scanner:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - juice-shop
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  # Deliberately vulnerable target app, used for local testing / CI.
+  # Never point this scanner at anything except a target you own or a
+  # lab app like this one.
+  juice-shop:
+    image: bkimminich/juice-shop
+    ports:
+      - "3000:3000"

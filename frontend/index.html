@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OWASP Top 10 Vulnerability Scanner</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Web App Vulnerability Scanner</h1>
+      <p class="subtitle">OWASP Top 10 &mdash; SQLi, XSS, headers, exposed files, CSRF, cookies</p>
+    </header>
+
+    <section class="warning">
+      <strong>Authorized use only.</strong> Only scan targets you own or have explicit written
+      permission to test. Scanning systems without authorization may be illegal.
+    </section>
+
+    <section class="scan-form">
+      <input id="targetUrl" type="text" placeholder="http://localhost:3000 (e.g. OWASP Juice Shop)" />
+      <label class="checkbox">
+        <input type="checkbox" id="confirmAuthorized" />
+        I own this target or have explicit authorization to scan it
+      </label>
+      <button id="startScanBtn">Start Scan</button>
+      <span id="statusBadge" class="status-badge"></span>
+    </section>
+
+    <section class="summary" id="summary" style="display:none;">
+      <div class="summary-card critical"><span id="countCritical">0</span><label>Critical</label></div>
+      <div class="summary-card high"><span id="countHigh">0</span><label>High</label></div>
+      <div class="summary-card medium"><span id="countMedium">0</span><label>Medium</label></div>
+      <div class="summary-card low"><span id="countLow">0</span><label>Low</label></div>
+      <div class="summary-card info"><span id="countInfo">0</span><label>Info</label></div>
+      <a id="downloadReport" class="report-btn" style="display:none;">Download PDF Report</a>
+    </section>
+
+    <section class="findings" id="findings"></section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
